@@ -1,0 +1,49 @@
+{
+  "about": {
+    "type": "Tesira_ZRC",
+    "created": "Tues, 12 October 2021"
+  },
+  "adapters": [
+    {
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://192.168.57.57:4999",
+      "ports": [
+        {
+          "id": "tesira",
+          "name": "Ceiling Mics",
+          "methods": [
+            {
+              "id": "mute_ceiling",
+              "name": "Ceiling Mic Mute",
+              "command": "DEVICE recallPreset 10%\r",
+              "params": [
+                {
+                  "id": "unmute_ceiling",
+                  "name": "Unmute",
+                  "value": "13"
+                },
+                {
+                  "id": "mute_ceiling",
+                  "name": "Mute",
+                  "value": "14"
+                }
+              ],
+              "type": "actions"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "styles": [
+    "tesira.mute_ceiling.icon=icon_ceiling_mic"	
+  ],
+  "rules": {
+    "meeting_started": [],
+    "meeting_ended": [],
+    "microphone_muted": [],
+    "microphone_unmuted": [],
+    "video_started": [],
+    "video_stopped": []
+  }
+}

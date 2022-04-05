@@ -1,0 +1,67 @@
+{
+    "about": {
+    "type": "Simple_Qsys,Dell_C65",
+    "version": "v1.1.1",
+    "created": "Tue Jan 11 2022"
+    },
+    "adapters": [
+        {
+            "model": "GenericNetworkAdapter",
+            "ip": "tcp://[add ip address here]:1702",
+            "ports": [
+                {
+                    "id": "qsys",
+                    "name": "System Control",
+                    "methods": [
+                        {
+                            "id": "syspower",
+                            "name": "System Power",
+                            "command": "ssl sysPwr %\r 1\n",
+                            "params": [
+                                {
+                                    "id": "off",
+                                    "name": "Off",
+                                    "value": "1"
+                                },
+                                {
+                                    "id": "on",
+                                    "name": "On",
+                                    "value": "2"
+                                }
+                            ],
+                            "type": "actions"
+                        },
+                        {
+                            "id": "disp",
+                            "name": "Display Input",
+                            "command": "ssl dispInput %\r 1\n",
+                            "params": [
+                                {
+                                    "id": "hdmi1",
+                                    "name": "Clickshare",
+                                    "value": "1"
+                                },
+                                {
+                                    "id": "dp1",
+                                    "name": "Zoom",
+                                    "value": "2"
+                                }
+                            ],
+                            "type": "actions"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "styles": [
+        "qsys.icon=icon_rack_equipment",
+        "qsys.syspower.icon=icon_power",
+        "qsys.disp=icon_tv"
+    ],
+    "rules": {
+        "meeting_started": [
+            "dispInput.dp1"
+        ]
+    }
+}    
